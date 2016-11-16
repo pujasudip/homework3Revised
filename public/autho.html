@@ -1,0 +1,35 @@
+<html>
+<head>
+
+<title>Login</title>
+</head>
+<script type="text/javascript">
+function display(form){
+if (form.username.value=="root") { 
+		if (form.password.value=="root") {              
+			location="admin.html" 
+		}
+		else {
+			alert("Invalid Password")
+		}
+		}
+		else {
+			alert("Invalid Username")
+		}
+	}
+
+function goBack(){
+	location="index.html"
+}
+</script>			
+<body >
+
+<form >
+Username (root): <input type="text" name="username" /><br><br>
+Password (root): <input type="password" name="password"/><br><br>
+<input type="button" value="Login" onClick="display(this.form)"/>
+<input type="button" value="Cancel" onClick="goBack()"/>
+</form>
+
+</body>
+</html>
