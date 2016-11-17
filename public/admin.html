@@ -1,57 +1,112 @@
 <html ng-app="myApp">
 <head>
 <!-- Latest compiled and minified CSS -->
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <title>Node Practice</title>
+<script>
+$(document).ready(function(){
+  $('#tabPanel').tabs();
+});
+</script>
 </head>
 <body>
+
+<div id="tabPanel">
+
 <div class="container" ng-controller="AppCtrl">
-  <h1>My Page</h1>
-  <h3>Education</h3>
-  <table class="table">
-  <thead>
-    <tr><th>School</th><th>Degree</th><th>Last Year</th><th>Action</th><th>&nbsp;</tr>
-  </thead>
-    <tbody>
-    <tr>
-      <td><input class="form-control" ng-model="data.school"></td>
-      <td><input class="form-control" ng-model="data.degree"></td>
-      <td><input class="form-control" ng-model="data.last_year"></td>
-      <td><button class="btn btn-primary" ng-click="addData()">Add Data</button></td>
-      <td><button class="btn btn-warning" ng-click="update(data._id)">Update</button></td>
-      <td><button class="btn btn-warning" ng-click="deselect()">Clear</button></td>
-    </tr>
-      <tr ng-repeat="data in hw3">
-          <td>{{data.school}}</td>
-          <td>{{data.degree}}</td>
-          <td>{{data.last_year}}</td>
-          <td><button class="btn btn-danger" ng-click="remove(data._id)">Remove</button></td>
-          <td><button class="btn btn-warning" ng-click="edit(data._id)">Edit</button></td>
+  <h1 id="myPage">My Profile</h1>
+
+  <form action="index.html">
+  <input type="Submit" value="Go Back" />
+  </form>
+
+  <ul>
+    <li><a href="#tab1">Education</a></li>
+    <li><a href="#tab2">Skills</a></li>
+    <li><a href="#tab3">Projects</a></li>
+  </ul>
+
+  <div id="tab1">
+    <h3>Education</h3>
+    <table class="table">
+    <thead>
+      <tr><th>School</th><th>Degree</th><th>Last Year</th><th>Action</th><th>&nbsp;</th></tr>
+    </thead>
+      <tbody>
+      <tr>
+        <td><input class="form-control" ng-model="data.school"></td>
+        <td><input class="form-control" ng-model="data.degree"></td>
+        <td><input class="form-control" ng-model="data.last_year"></td>
+        <td><button class="btn btn-primary" ng-click="addData()">Add Data</button></td>
+        <td><button class="btn btn-warning" ng-click="update(data._id)">Update</button></td>
+        <td><button class="btn btn-warning" ng-click="deselect()">Clear</button></td>
       </tr>
-    <tbody>
-  </table>
-<h3>Skills</h3>
-  <table class="table">
-  <thead>
-    <tr><th>Skills</th><th>Actions</th><th>&nbsp;</th></tr>
-  </thead>
-    <tbody>
-    <tr>
-      <td><input class="form-control" ng-model="data2.skill"></td>
-      <td><button class="btn btn-primary" ng-click="addData2()">Add Data</button></td>
-      <td><button class="btn btn-warning" ng-click="update2(data2._id)">Update</button></td>
-      <td><button class="btn btn-warning" ng-click="deselect2()">Clear</button></td>
-    </tr>
-      <tr ng-repeat="data2 in hw32">
-          <td>{{data2.skill}}</td>
-          <td><button class="btn btn-danger" ng-click="remove2(data2._id)">Remove</button></td>
-          <td><button class="btn btn-warning" ng-click="edit2(data2._id)">Edit</button></td>
+        <tr ng-repeat="data in hw3">
+            <td>{{data.school}}</td>
+            <td>{{data.degree}}</td>
+            <td>{{data.last_year}}</td>
+            <td><button class="btn btn-danger" ng-click="remove(data._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(data._id)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab2">
+    <h3>Skills</h3>
+    <table id="tab2" class="table">
+    <thead>
+      <tr><th>Skills</th><th>Actions</th><th>&nbsp;</th></tr>
+    </thead>
+      <tbody>
+      <tr>
+        <td><input class="form-control" ng-model="data2.skill"></td>
+        <td><button class="btn btn-primary" ng-click="addData2()">Add Data</button></td>
+        <td><button class="btn btn-warning" ng-click="update2(data2._id)">Update</button></td>
+        <td><button class="btn btn-warning" ng-click="deselect2()">Clear</button></td>
       </tr>
-    <tbody>
-  </table>
-<form action="index.html">
-<input type="Submit" value="Go Back" />
-</form>
+        <tr ng-repeat="data2 in hw32">
+            <td>{{data2.skill}}</td>
+            <td><button class="btn btn-danger" ng-click="remove2(data2._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="edit2(data2._id)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab3">
+  <h3>Projects</h3>
+    <table id="tab3" class="table">
+    <thead>
+      <tr><th>Title</th><th>Projects</th><th>&nbsp;</th></tr>
+    </thead>
+      <tbody>
+      <tr>
+        <td><input class="form-control" ng-model="data3.title"></td>
+         <td><input class="form-control" ng-model="data3.description"></td>
+        <td><button class="btn btn-primary" ng-click="addData3()">Add Data</button></td>
+        <td><button class="btn btn-warning" ng-click="update3(data3._id)">Update</button></td>
+        <td><button class="btn btn-warning" ng-click="deselect3()">Clear</button></td>
+      </tr>
+        <tr ng-repeat="data3 in hw33">
+            <td>{{data3.title}}</td>
+            <td>{{data3.description}}</td>
+            <td><button class="btn btn-danger" ng-click="remove3(data3._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="edit3(data3._id)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="controllers/controller.js"></script>
