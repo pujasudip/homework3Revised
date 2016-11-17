@@ -6,44 +6,49 @@
   <title>Homework3</title>
 </head>
 <body>
-<header>Sudip's Page</header>
-<div class="container" ng-controller="AppCtrl">
-<form action="autho.html">
-<input class="btn btn-primary" type="Submit" value="Member Sign in" />
-</form>
+<header>
   <h1 align="center">Sudip Baral</h1>
   <h5 align="center">123-456-7890</h5>
   <h5 align="center">pujasudip@gmail.com</h5>
-  <hr>
+</header>
+<div class="container" ng-controller="AppCtrl">
+<form class="member" action="autho.html">
+<input class="btn btn-primary" type="Submit" value="Member Sign in" />
+</form>
   <h3>Education</h3>
   <hr width="25%" align="left">
 <table ng-repeat="data in hw3" align="center">
   <tr>
-    <td>{{data.school}}</td>
+    <td align="center" class="college">{{data.school}}</td>
   </tr>
   <tr>
-    <td>{{data.degree}}, &nbsp;{{data.last_year}}</td>
+    <td align="center">{{data.degree}}, &nbsp;{{data.last_year}}</td>
+  </tr>
+    <tr>
+    <td align="center"> --- </td>
   </tr>
 </table>
  <h3>Skill</h3>
 <hr width="25%" align="left">
-<table ng-repeat="data2 in hw32" align="center">
+<table align="center">
   <tr>
-    <td>{{data2.skill}}</td>
+    <td ng-repeat="data2 in hw32">&#x2666;{{data2.skill}}&nbsp;&nbsp;</td>
   </tr>
 </table>
   <h3>Projects</h3>
 <hr width="25%" align="left">
 <table ng-repeat="data3 in hw33" align="center">
   <tr>
-    <td>{{data3.title}}</td>
-    <td>{{data3.description}}</td>
+    <td align="center">{{data3.title}}&nbsp;:&nbsp;{{data3.description}}</td>
+  </tr>
+  <tr>
+    <td align="center"> --- </td>
   </tr>
 </table>
 
 </div>
 <footer>
-  <p>This is my page</p>
+  <p id="f">@Copyright 2016</p>
   </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="controllers/controller.js"></script>
